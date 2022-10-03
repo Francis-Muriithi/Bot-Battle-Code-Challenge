@@ -10,6 +10,14 @@ const botTypeClasses = {
 };
 
 function BotCard({ bot, onClick }) {
+
+function deleteBot (id){
+  fetch(`http://localhost:8002/bots" ${id}`, {
+    method: "DELETE",
+  }).then((resp)=>{resp.json()
+    .then((resp)=> console.log("deleting"))
+  })
+}
   return (
     <div className="ui column">
       <div
@@ -47,9 +55,7 @@ function BotCard({ bot, onClick }) {
             <div className="ui center aligned segment basic">
               <button
                 className="ui mini red button"
-                onClick={() =>
-                  onClick(bot.id)
-                }
+                onClick={() => deleteBot(bot.id)}
               >
                 x
               </button>
