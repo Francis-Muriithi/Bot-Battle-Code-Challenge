@@ -10,21 +10,16 @@ const botTypeClasses = {
 };
 
 function BotCard({ bot, onClick }) {
-
-function deleteBot (id){
-  fetch(`http://localhost:8002/bots" ${id}`, {
-    method: "DELETE",
-  }).then((resp)=>{resp.json()
-    .then((resp)=> console.log("deleting"))
-  })
-}
+  function deleteBot(id) {
+    fetch(`http://localhost:8002/bots" ${id}`, {
+      method: "DELETE",
+    }).then((resp) => {
+      resp.json().then((resp) => console.log("deleting"));
+    });
+  }
   return (
     <div className="ui column">
-      <div
-        className="ui card"
-        key={bot.id}
-        onClick={() => onClick(bot.id)}
-      >
+      <div className="ui card" key={bot.id} onClick={() => onClick(bot.id)}>
         <div className="image">
           <img alt="oh no!" src={bot.avatar_url} />
         </div>
